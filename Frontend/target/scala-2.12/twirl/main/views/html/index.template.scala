@@ -31,8 +31,7 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
 /*2.6*/import java.math.BigInteger;var i = 0
 
 
-Seq[Any](format.raw/*1.19*/("""
-    """),format.raw/*3.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
 <html>
 
     <style>
@@ -76,8 +75,24 @@ Seq[Any](format.raw/*1.19*/("""
                 color: #3F51B5">"""),_display_(/*44.34*/message),format.raw/*44.41*/("""</p>
 
 
-            <form action = """"),_display_(/*47.30*/routes/*47.36*/.HomeController.services()),format.raw/*47.62*/("""" method="GET">
-                 <button id="api-get-page"  class="button" type="submit">Run Service Recommendation</button>
+            <form action = """"),_display_(/*47.30*/routes/*47.36*/.HomeController.Query1Handler()),format.raw/*47.67*/("""" method="GET">
+                 <button id="api-get-page"  class="button" type="submit">All Plays</button>
+            </form>
+
+            <form action = """"),_display_(/*51.30*/routes/*51.36*/.HomeController.Query2Handler()),format.raw/*51.67*/("""" method="GET">
+                <button id="api-get-page"  class="button" type="submit">All Player Plays</button>
+            </form>
+
+            <form action = """"),_display_(/*55.30*/routes/*55.36*/.HomeController.Query3Handler()),format.raw/*55.67*/("""" method="GET">
+                <button id="api-get-page"  class="button" type="submit">All Scoring Plays</button>
+            </form>
+
+            <form action = """"),_display_(/*59.30*/routes/*59.36*/.HomeController.Query4Handler()),format.raw/*59.67*/("""" method="GET">
+                <button id="api-get-page"  class="button" type="submit">All Third Down Conversions</button>
+            </form>
+
+            <form action = """"),_display_(/*63.30*/routes/*63.36*/.HomeController.Query5Handler()),format.raw/*63.67*/("""" method="GET">
+                <button id="api-get-page"  class="button" type="submit">Specific Plays</button>
             </form>
 
         </header>
@@ -100,11 +115,11 @@ Seq[Any](format.raw/*1.19*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2021-11-15T16:06:35.336
-                  SOURCE: C:/Users/CJ/Desktop/8391/Lab4/Frontend/app/views/index.scala.html
-                  HASH: cb70534826fc8d060459dd9d7ed1a9978dd8a68a
-                  MATRIX: 948->1|1038->25|1105->18|1137->64|1228->128|1256->129|1297->143|1468->287|1497->288|1536->300|1575->311|1604->312|1646->326|1867->520|1896->521|1935->533|1971->541|2000->542|2042->556|2399->886|2428->887|2461->893|2804->1209|2832->1216|2898->1255|2913->1261|2960->1287
-                  LINES: 28->1|31->2|34->1|35->3|39->7|39->7|40->8|44->12|44->12|46->14|46->14|46->14|47->15|52->20|52->20|54->22|54->22|54->22|55->23|65->33|65->33|66->34|76->44|76->44|79->47|79->47|79->47
+                  DATE: 2021-12-03T15:48:44.184
+                  SOURCE: /Users/andrewbrkich/Desktop/Project/Frontend/app/views/index.scala.html
+                  HASH: 6c64d8a9bec88d2f53b527e8f49e0ba714c5601d
+                  MATRIX: 948->1|1038->24|1104->19|1134->62|1221->122|1249->123|1289->136|1456->276|1485->277|1522->287|1561->298|1590->299|1631->312|1847->501|1876->502|1913->512|1949->520|1978->521|2019->534|2366->854|2395->855|2427->860|2760->1166|2788->1173|2851->1209|2866->1215|2918->1246|3103->1404|3118->1410|3170->1441|3361->1605|3376->1611|3428->1642|3620->1807|3635->1813|3687->1844|3888->2018|3903->2024|3955->2055
+                  LINES: 28->1|31->2|34->2|34->3|38->7|38->7|39->8|43->12|43->12|45->14|45->14|45->14|46->15|51->20|51->20|53->22|53->22|53->22|54->23|64->33|64->33|65->34|75->44|75->44|78->47|78->47|78->47|82->51|82->51|82->51|86->55|86->55|86->55|90->59|90->59|90->59|94->63|94->63|94->63
                   -- GENERATED --
               */
           

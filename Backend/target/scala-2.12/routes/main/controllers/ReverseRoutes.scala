@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/CJ/Desktop/8391/Lab4/Backend/conf/routes
-// @DATE:Mon Nov 15 16:03:17 CST 2021
+// @SOURCE:/Users/andrewbrkich/Desktop/Project/Backend/conf/routes
+// @DATE:Fri Dec 03 12:04:22 CST 2021
 
 import play.api.mvc.Call
 

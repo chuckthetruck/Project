@@ -67,4 +67,34 @@ public class HomeController extends Controller {
 
     }
 
+    public Result Query1Handler(){
+        JsonNode test = ServicesResponse.getServices();
+
+        return ok(views.html.query1.render("Packers"));
+    }
+
+    public Result Query2Handler(){
+        JsonNode test = ServicesResponse.getServices();
+
+        return ok(views.html.query2.render("Packers"));
+    }
+
+    public Result Query3Handler(){
+        JsonNode test = ServicesResponse.getServices();
+
+        return ok(views.html.query3.render("Packers"));
+    }
+
+    public Result Query4Handler(){
+        JsonNode test = ServicesResponse.getServices();
+
+        return ok(views.html.query4.render("Packers"));
+    }
+
+    public Result Query5Handler(){
+        JsonNode test = ServicesResponse.getServices();
+
+        return ok(views.html.query5.render("Packers"));
+    }
+
 }

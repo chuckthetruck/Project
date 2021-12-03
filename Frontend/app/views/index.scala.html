@@ -44,8 +44,24 @@
                 color: #3F51B5">@message</p>
 
 
-            <form action = "@routes.HomeController.services()" method="GET">
-                 <button id="api-get-page"  class="button" type="submit">Run Service Recommendation</button>
+            <form action = "@routes.HomeController.Query1Handler()" method="GET">
+                 <button id="api-get-page"  class="button" type="submit">All Plays</button>
+            </form>
+
+            <form action = "@routes.HomeController.Query2Handler()" method="GET">
+                <button id="api-get-page"  class="button" type="submit">All Player Plays</button>
+            </form>
+
+            <form action = "@routes.HomeController.Query3Handler()" method="GET">
+                <button id="api-get-page"  class="button" type="submit">All Scoring Plays</button>
+            </form>
+
+            <form action = "@routes.HomeController.Query4Handler()" method="GET">
+                <button id="api-get-page"  class="button" type="submit">All Third Down Conversions</button>
+            </form>
+
+            <form action = "@routes.HomeController.Query5Handler()" method="GET">
+                <button id="api-get-page"  class="button" type="submit">Specific Plays</button>
             </form>
 
         </header>

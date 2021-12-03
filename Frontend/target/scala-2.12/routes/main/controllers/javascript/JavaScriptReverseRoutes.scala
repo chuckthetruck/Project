@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/CJ/Desktop/8391/Lab4/Frontend/conf/routes
-// @DATE:Mon Nov 15 16:05:21 CST 2021
+// @SOURCE:/Users/andrewbrkich/Desktop/Project/Frontend/conf/routes
+// @DATE:Fri Dec 03 15:48:43 CST 2021
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -19,12 +19,22 @@ package controllers.javascript {
     }
 
   
-    // @LINE:9
-    def servicesHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.servicesHandler",
+    // @LINE:11
+    def Query1Handler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.Query1Handler",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "services"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "query1"})
+        }
+      """
+    )
+  
+    // @LINE:14
+    def Query4Handler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.Query4Handler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "query4"})
         }
       """
     )
@@ -39,12 +49,52 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:13
+    def Query3Handler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.Query3Handler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "query3"})
+        }
+      """
+    )
+  
+    // @LINE:9
+    def servicesHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.servicesHandler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "services"})
+        }
+      """
+    )
+  
+    // @LINE:12
+    def Query2Handler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.Query2Handler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "query2"})
+        }
+      """
+    )
+  
     // @LINE:7
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.index",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
+        }
+      """
+    )
+  
+    // @LINE:15
+    def Query5Handler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.Query5Handler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "query5"})
         }
       """
     )

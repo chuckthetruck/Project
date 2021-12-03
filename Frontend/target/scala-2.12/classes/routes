@@ -7,3 +7,9 @@
 GET     /                           controllers.HomeController.index()
 GET     /servicesHandler            controllers.HomeController.services()
 GET     /services                    controllers.HomeController.servicesHandler()
+
+GET     /query1                    controllers.HomeController.Query1Handler()
+GET     /query2                    controllers.HomeController.Query2Handler()
+GET     /query3                    controllers.HomeController.Query3Handler()
+GET     /query4                    controllers.HomeController.Query4Handler()
+GET     /query5                    controllers.HomeController.Query5Handler()

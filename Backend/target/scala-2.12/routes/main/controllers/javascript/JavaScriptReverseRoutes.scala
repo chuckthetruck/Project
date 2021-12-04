@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/andrewbrkich/Desktop/Project/Backend/conf/routes
-// @DATE:Fri Dec 03 12:04:22 CST 2021
+// @SOURCE:C:/Users/CJ/Desktop/8391/Project/Backend/conf/routes
+// @DATE:Sat Dec 04 15:28:41 CST 2021
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,7 +10,7 @@ import _root_.controllers.Assets.Asset
 // @LINE:7
 package controllers.javascript {
 
-  // @LINE:9
+  // @LINE:11
   class ReverseServiceController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:9
+    // @LINE:11
     def services: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ServiceController.services",
       """
@@ -44,6 +44,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
+        }
+      """
+    )
+  
+    // @LINE:9
+    def allplays: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.allplays",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "allplays"})
         }
       """
     )

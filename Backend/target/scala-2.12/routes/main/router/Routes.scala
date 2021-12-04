@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/andrewbrkich/Desktop/Project/Backend/conf/routes
-// @DATE:Fri Dec 03 12:04:22 CST 2021
+// @SOURCE:C:/Users/CJ/Desktop/8391/Project/Backend/conf/routes
+// @DATE:Sat Dec 04 15:28:41 CST 2021
 
 package router
 
@@ -15,7 +15,7 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:7
   HomeController_0: controllers.HomeController,
-  // @LINE:9
+  // @LINE:11
   ServiceController_1: controllers.ServiceController,
   val prefix: String
 ) extends GeneratedRouter {
@@ -24,7 +24,7 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:7
     HomeController_0: controllers.HomeController,
-    // @LINE:9
+    // @LINE:11
     ServiceController_1: controllers.ServiceController
   ) = this(errorHandler, HomeController_0, ServiceController_1, "/")
 
@@ -40,6 +40,7 @@ class Routes(
 
   def documentation = List(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """allplays""", """controllers.HomeController.allplays()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """services""", """controllers.ServiceController.services()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -67,10 +68,28 @@ class Routes(
   )
 
   // @LINE:9
-  private[this] lazy val controllers_ServiceController_services1_route = Route("GET",
+  private[this] lazy val controllers_HomeController_allplays1_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("allplays")))
+  )
+  private[this] lazy val controllers_HomeController_allplays1_invoker = createInvoker(
+    HomeController_0.allplays(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "allplays",
+      Nil,
+      "GET",
+      this.prefix + """allplays""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:11
+  private[this] lazy val controllers_ServiceController_services2_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("services")))
   )
-  private[this] lazy val controllers_ServiceController_services1_invoker = createInvoker(
+  private[this] lazy val controllers_ServiceController_services2_invoker = createInvoker(
     ServiceController_1.services(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -94,9 +113,15 @@ class Routes(
       }
   
     // @LINE:9
-    case controllers_ServiceController_services1_route(params@_) =>
+    case controllers_HomeController_allplays1_route(params@_) =>
       call { 
-        controllers_ServiceController_services1_invoker.call(ServiceController_1.services())
+        controllers_HomeController_allplays1_invoker.call(HomeController_0.allplays())
+      }
+  
+    // @LINE:11
+    case controllers_ServiceController_services2_route(params@_) =>
+      call { 
+        controllers_ServiceController_services2_invoker.call(ServiceController_1.services())
       }
   }
 }

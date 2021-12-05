@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/CJ/Desktop/8391/Project/Backend/conf/routes
-// @DATE:Sat Dec 04 15:28:41 CST 2021
+// @DATE:Sun Dec 05 14:30:47 CST 2021
 
 
 package router {

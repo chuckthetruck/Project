@@ -24,7 +24,7 @@ public class Queries {
     public ResultSet getPlayerPlays(String table, String player) throws SQLException {
         Queries dbq = new Queries();
         String outstring = "";
-        String select_sql = "Select * from " + table + " where " + player + " in (Select Detail from " + table + ");";
+        String select_sql = "Select * from " + table + " where Detail like" + " '%" + player + "%';";
         Statement state = this.conn.createStatement();
         ResultSet rs = state.executeQuery(select_sql);
 
@@ -32,9 +32,8 @@ public class Queries {
     }
 
     public ResultSet getPlayTypeDistance(String table, String type, String distance) throws SQLException {
-        Queries dbq = new Queries();
-        String outstring = "";
-        String select_sql = "Select * from " + table + " where type = " + type + " and Yards_Gained > " + distance + ";";
+        String select_sql = "Select * from " + table + " where type = '" + type + "' and `Yards Gained` > " + distance + ";";
+        System.out.println(select_sql);
         Statement state = this.conn.createStatement();
         ResultSet rs = state.executeQuery(select_sql);
 
@@ -42,19 +41,15 @@ public class Queries {
     }
 
     public ResultSet getScoringPlays(String table) throws SQLException {
-        Queries dbq = new Queries();
-        String outstring = "";
-        String select_sql = "Select * from " + table + " where 'touchdown' in (Select Detail from " + table + ");";
+        String select_sql = "Select * from " + table + " where Detail regexp 'touchdown|field goal good|extra point good|safety';";
         Statement state = this.conn.createStatement();
         ResultSet rs = state.executeQuery(select_sql);
 
         return rs;
     }
 
-    public ResultSet getThirdDownConversions(String table, String down, int yards_gained, int yards_to_go) throws SQLException {
-        Queries dbq = new Queries();
-        String outstring = "";
-        String select_sql = "Select * from " + table + " where down = 3 and " + (yards_gained-yards_to_go) + "> 0;";
+    public ResultSet getThirdDownConversions(String table) throws SQLException {
+        String select_sql = "Select * from " + table + " where down = 3 and (`Yards gained` - ToGo) > 0;";
         Statement state = this.conn.createStatement();
         ResultSet rs = state.executeQuery(select_sql);
 

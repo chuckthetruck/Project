@@ -1,4 +1,4 @@
-[debug] [naha] Invalidating C:\Users\CJ\Desktop\8391\Project\Backend\target\scala-2.12\classes\controllers\HomeController.class: stamp changed from lastModified(1638736279573) to lastModified(1638736309031)
+[debug] [naha] Invalidating C:\Users\CJ\Desktop\8391\Project\Backend\target\scala-2.12\classes\controllers\HomeController.class: stamp changed from lastModified(1638993826824) to lastModified(1638997450973)
 [debug] [naha] 
 [debug] [naha] Initial source changes: 
 [debug] [naha] 	removed:Set()
@@ -16,12 +16,12 @@
 [debug] All initially invalidated sources: Set(C:\Users\CJ\Desktop\8391\Project\Backend\app\controllers\HomeController.java)
 [debug] [naha] Initial set of included nodes: Set(C:\Users\CJ\Desktop\8391\Project\Backend\app\controllers\HomeController.java)
 [info] Compiling 1 Java source to C:\Users\CJ\Desktop\8391\Project\Backend\target\scala-2.12\classes...
-[debug] Attempting to call com.sun.tools.javac.api.JavacTool@165cc274 directly...
+[debug] Attempting to call com.sun.tools.javac.api.JavacTool@60dee1fc directly...
 [info] C:\Users\CJ\Desktop\8391\Project\Backend\app\controllers\HomeController.java: C:\Users\CJ\Desktop\8391\Project\Backend\app\controllers\HomeController.java uses or overrides a deprecated API.
 [info] C:\Users\CJ\Desktop\8391\Project\Backend\app\controllers\HomeController.java: Recompile with -Xlint:deprecation for details.
-[debug] Java compilation took 0.1009543 s
-[debug] Java analysis took 0.0094377 s
-[debug] Java compile + analysis took 0.1165158 s
+[debug] Java compilation took 0.1285643 s
+[debug] Java analysis took 0.0090875 s
+[debug] Java compile + analysis took 0.1433115 s
 [debug] [naha] New invalidations:
 [debug] [naha] 	Set()
 [debug] [naha] Initial set of included nodes: Set()

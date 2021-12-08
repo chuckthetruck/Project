@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/andrewbrkich/Desktop/Project/Frontend/conf/routes
-// @DATE:Tue Dec 07 23:24:00 CST 2021
+// @SOURCE:C:/Users/CJ/Desktop/8391/Project/Frontend/conf/routes
+// @DATE:Wed Dec 08 15:12:12 CST 2021
 
 import play.api.mvc.Call
 
@@ -18,6 +18,12 @@ package controllers {
     }
 
   
+    // @LINE:19
+    def query5(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "q5")
+    }
+  
     // @LINE:9
     def Query1Handler(): Call = {
       
@@ -28,6 +34,24 @@ package controllers {
     def Query4Handler(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "query4")
+    }
+  
+    // @LINE:17
+    def query3(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "q3")
+    }
+  
+    // @LINE:18
+    def query4(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "q4")
+    }
+  
+    // @LINE:16
+    def query2(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "q2")
     }
   
     // @LINE:15

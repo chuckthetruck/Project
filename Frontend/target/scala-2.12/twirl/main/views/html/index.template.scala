@@ -22,7 +22,7 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object ptindex extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
   def apply/*1.2*/(message: String):play.twirl.api.HtmlFormat.Appendable = {
@@ -31,7 +31,8 @@ object ptindex extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Ht
 /*2.6*/import java.math.BigInteger;var i = 0
 
 
-Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*1.19*/("""
+    """),format.raw/*3.1*/("""<!DOCTYPE html>
 <html>
 
     <style>
@@ -115,11 +116,11 @@ Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-12-06T11:34:45.498
-                  SOURCE: /Users/andrewbrkich/Desktop/Project/Frontend/app/views/index.scala.html
-                  HASH: a1eaa123ed3fb90359f7e6c33f55e7004a9af5b3
-                  MATRIX: 948->1|1038->24|1104->19|1134->62|1221->122|1249->123|1289->136|1456->276|1485->277|1522->287|1561->298|1590->299|1631->312|1847->501|1876->502|1913->512|1949->520|1978->521|2019->534|2366->854|2395->855|2427->860|2774->1180|2802->1187|2865->1223|2880->1229|2932->1260|3117->1418|3132->1424|3184->1455|3375->1619|3390->1625|3442->1656|3634->1821|3649->1827|3701->1858|3902->2032|3917->2038|3969->2069
-                  LINES: 28->1|31->2|34->2|34->3|38->7|38->7|39->8|43->12|43->12|45->14|45->14|45->14|46->15|51->20|51->20|53->22|53->22|53->22|54->23|64->33|64->33|65->34|75->44|75->44|78->47|78->47|78->47|82->51|82->51|82->51|86->55|86->55|86->55|90->59|90->59|90->59|94->63|94->63|94->63
+                  DATE: 2021-12-07T23:46:43.716
+                  SOURCE: C:/Users/CJ/Desktop/8391/Project/Frontend/app/views/index.scala.html
+                  HASH: f20e97ac700b0aa7e8f97fc531efa876a2948516
+                  MATRIX: 948->1|1038->25|1105->18|1137->64|1228->128|1256->129|1297->143|1468->287|1497->288|1536->300|1575->311|1604->312|1646->326|1867->520|1896->521|1935->533|1971->541|2000->542|2042->556|2399->886|2428->887|2461->893|2818->1223|2846->1230|2912->1269|2927->1275|2979->1306|3168->1468|3183->1474|3235->1505|3430->1673|3445->1679|3497->1710|3693->1879|3708->1885|3760->1916|3965->2094|3980->2100|4032->2131
+                  LINES: 28->1|31->2|34->1|35->3|39->7|39->7|40->8|44->12|44->12|46->14|46->14|46->14|47->15|52->20|52->20|54->22|54->22|54->22|55->23|65->33|65->33|66->34|76->44|76->44|79->47|79->47|79->47|83->51|83->51|83->51|87->55|87->55|87->55|91->59|91->59|91->59|95->63|95->63|95->63
                   -- GENERATED --
               */
           

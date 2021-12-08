@@ -45,7 +45,7 @@ public class HomeController extends Controller {
         put("Miami","mia");
         put("Packers","gnb");
         put("Panthers","car");
-        put("Patriots","mia");
+        put("Patriots","nwe");
         put("Raiders","oak");
         put("Rams","lar");
         put("Ravens","bal");
@@ -74,7 +74,6 @@ public class HomeController extends Controller {
         ResultSet rs = null;
 
         if(home != null) {
-            System.out.println("here");
             String tableString = home + "." + home_abv + "vs" + away_abv + "_" + date;
             Queries q = new Queries();
             rs = q.getAllPlays(tableString);
@@ -118,7 +117,6 @@ public class HomeController extends Controller {
         ResultSet rs = null;
 
         if(home != null) {
-            System.out.println("here");
             String tableString = home + "." + home_abv + "vs" + away_abv + "_" + date;
             Queries q = new Queries();
             rs = q.getScoringPlays(tableString);
@@ -163,7 +161,6 @@ public class HomeController extends Controller {
         ResultSet rs = null;
 
         if(home != null) {
-            System.out.println("here");
             String tableString = home + "." + home_abv + "vs" + away_abv + "_" + date;
             Queries q = new Queries();
             rs = q.getPlayerPlays(tableString,player);
@@ -207,7 +204,6 @@ public class HomeController extends Controller {
         ResultSet rs = null;
 
         if(home != null) {
-            System.out.println("here");
             String tableString = home + "." + home_abv + "vs" + away_abv + "_" + date;
             Queries q = new Queries();
             rs = q.getThirdDownConversions(tableString);
@@ -253,7 +249,6 @@ public class HomeController extends Controller {
         ResultSet rs = null;
 
         if(home != null) {
-            System.out.println("here");
             String tableString = home + "." + home_abv + "vs" + away_abv + "_" + date;
             Queries q = new Queries();
             rs = q.getPlayTypeDistance(tableString,type,distance);

@@ -22,9 +22,8 @@ public class Queries {
     }
 
     public ResultSet getPlayerPlays(String table, String player) throws SQLException {
-        Queries dbq = new Queries();
-        String outstring = "";
         String select_sql = "Select * from " + table + " where Detail like" + " '%" + player + "%';";
+        System.out.println(select_sql);
         Statement state = this.conn.createStatement();
         ResultSet rs = state.executeQuery(select_sql);
 
@@ -42,6 +41,7 @@ public class Queries {
 
     public ResultSet getScoringPlays(String table) throws SQLException {
         String select_sql = "Select * from " + table + " where Detail regexp 'touchdown|field goal good|extra point good|safety';";
+        System.out.println(select_sql);
         Statement state = this.conn.createStatement();
         ResultSet rs = state.executeQuery(select_sql);
 
@@ -50,6 +50,7 @@ public class Queries {
 
     public ResultSet getThirdDownConversions(String table) throws SQLException {
         String select_sql = "Select * from " + table + " where down = 3 and (`Yards gained` - ToGo) > 0;";
+        System.out.println(select_sql);
         Statement state = this.conn.createStatement();
         ResultSet rs = state.executeQuery(select_sql);
 

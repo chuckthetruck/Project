@@ -3,34 +3,21 @@ package controllers;
 import com.fasterxml.jackson.databind.JsonNode;
 import play.data.Form;
 import play.data.FormFactory;
-import play.libs.ws.WSResponse;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.libs.concurrent.HttpExecutionContext;
 import utils.Queries;
 
 import javax.inject.Inject;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
-import java.util.concurrent.CompletionStage;
 
 /**
  * Software Service Market Place
  */
 public class HomeController extends Controller {
 
-    static Connection conn;
+
 
     @Inject
     HttpExecutionContext ec;
@@ -55,146 +42,261 @@ public class HomeController extends Controller {
 
 
     public Result Query1Handler(){
-        JsonNode test = ServicesResponse.getServices();
-
-        return ok(views.html.query1.render(""));
+        return ok(views.html.query1.render(new ArrayList<List<String>>(),"Team1","Team2"));
     }
 
 
     public Result Query2Handler(){
-        JsonNode test = ServicesResponse.getServices();
-
-        return ok(views.html.query2.render(""));
+        return ok(views.html.query2.render(new ArrayList<List<String>>(),"Team1","Team2"));
     }
 
     public Result Query3Handler(){
-        JsonNode test = ServicesResponse.getServices();
-
-        return ok(views.html.query3.render(""));
+        return ok(views.html.query3.render(new ArrayList<List<String>>(),"Team1","Team2"));
     }
 
     public Result Query4Handler(){
-        JsonNode test = ServicesResponse.getServices();
-
-        return ok(views.html.query4.render(""));
+        return ok(views.html.query4.render(new ArrayList<List<String>>(),"Team1","Team2"));
     }
 
     public Result Query5Handler(){
-        JsonNode test = ServicesResponse.getServices();
-
-        return ok(views.html.query5.render(""));
+        return ok(views.html.query5.render(new ArrayList<List<String>>(),"Team1","Team2"));
     }
 
-    public CompletionStage<Result> query1(){
+    public Result query1(){
         Form<Game> q1Form = formFactory.form(Game.class).bindFromRequest();
 
-        String team1 = q1Form.get().getTeam1();
-        String team2 = q1Form.get().getTeam2();
-        String date = q1Form.get().getDate();
+        Game game = q1Form.get();
 
-        List<List<String>> nullList = new ArrayList<List<String>>();
+        JsonNode response = Queries.getAllPlays(game.team1, game.team2, game.date);
 
-        if (q1Form.get().getTeam1() == null){
-            System.out.println("Test return in query1");
-            return (CompletionStage<Result>) ok(views.html.query1.render(""));
-        }
+        List<List<String>> resList = new ArrayList<List<String>>();
 
-        return q1Form.get().checkGame(team1, team2, date).thenApplyAsync((WSResponse r)->{
-            if (r.getStatus() == 200 && r.asJson() != null) {
+        if(response != null){
+            for(JsonNode node : response){
 
-                List<List<String>> outList = new ArrayList<List<String>>();
+                List<String> tempList = new ArrayList<>();
 
-                JsonNode response = r.asJson();
-                Iterator it = response.fieldNames();
-                while(it.hasNext()){
-                    List<String> playList = new ArrayList<String>();
-                    String index = it.next().toString();
+                tempList.add(node.get("Quarter").asText());
+                tempList.add(node.get("Time").asText());
+                tempList.add(node.get("Down").asText());
+                tempList.add(node.get("ToGo").asText());
+                tempList.add(node.get("Location").asText());
+                tempList.add(node.get(hm.get(game.team1).toUpperCase()).asText());
+                tempList.add(node.get(hm.get(game.team2).toUpperCase()).asText());
+                tempList.add(node.get("EPB").asText());
+                tempList.add(node.get("EPA").asText());
+                tempList.add(node.get("Type").asText());
+                tempList.add(node.get("Depth").asText());
+                tempList.add(node.get("Direction").asText());
+                tempList.add(node.get("Yards Gained").asText());
+                tempList.add(node.get("Detail").asText());
 
-                    JsonNode paperInfo = response.get(index);
+                resList.add(tempList);
 
-                    playList.add(index);
-                    playList.add(paperInfo.get("quarter").toString());
-                    playList.add(paperInfo.get("time").toString());
-                    playList.add(paperInfo.get("down").toString());
-                    playList.add(paperInfo.get("togo").toString());
-                    playList.add(paperInfo.get("location").toString());
-                    playList.add(paperInfo.get("detail").toString());
-                    playList.add(paperInfo.get("type").toString());
-                    playList.add(paperInfo.get("depth").toString());
-                    playList.add(paperInfo.get("direction").toString());
-                    playList.add(paperInfo.get("yardsgained").toString());
-
-                    outList.add(playList);
-
-                }
-
-                return ok(views.html.query1.render("testing 123"));
-
-            }else {
-                return ok(views.html.query1.render(""));
             }
-        });
-
-    }
-
-//    public Result Q2SQL(String table, String player) throws SQLException {
-//
-//        Queries dbq = new Queries();
-//        String outstring = "";
-//        String select_sql = "Select * from " + table + " where " + player + " in (Select Detail from " + table + ");";
-//        Statement state = conn.createStatement();
-//        ResultSet rs = state.executeQuery(select_sql);
-//
-//        return ok(views.html.query2.render("test"));
-//    }
-//
-//    public static Result Q1SQL(String table) throws SQLException {
-//        Queries dbq = new Queries();
-//        String outstring = "";
-//        String select_sql = "Select * from " + table + ";";
-//        Statement state = conn.createStatement();
-//        ResultSet rs = state.executeQuery(select_sql);
-//
-//        return ok(views.html.query1.render("test"));
-//    }
-//
-//    public static Result Q3SQL(String table) throws SQLException {
-//        Queries dbq = new Queries();
-//        String outstring = "";
-//        String select_sql = "Select * from " + table + " where 'touchdown' in (Select Detail from " + table + ");";
-//        Statement state = conn.createStatement();
-//        ResultSet rs = state.executeQuery(select_sql);
-//
-//        return ok(views.html.query3.render("test"));
-//    }
-//
-//    public static Result Q4SQL(String table, String yards_gained, String yards_to_go) throws SQLException {
-//        Queries dbq = new Queries();
-//        String outstring = "";
-//        String select_sql = "Select * from " + table + " where down = 3 and (" + yards_gained + ") - (" + yards_to_go +") > 0;";
-//        Statement state = conn.createStatement();
-//        ResultSet rs = state.executeQuery(select_sql);
-//
-//        return ok(views.html.query4.render("test"));
-//    }
-//
-//    public Result Q5SQL(String table, String type, String distance) throws SQLException {
-//        Queries dbq = new Queries();
-//        String outstring = "";
-//        String select_sql = "Select * from " + table + " where type = " + type + " and Yards_Gained > " + distance + ";";
-//        Statement state = conn.createStatement();
-//        ResultSet rs = state.executeQuery(select_sql);
-//
-//        return ok(views.html.query5.render("test"));
-//    }
-
-    static {
-        try {
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/packers", "root", "bearflag");
-        } catch (SQLException var1) {
-            var1.printStackTrace();
         }
 
+        System.out.println(resList);
+
+        return ok(views.html.query1.render(resList,hm.get(game.team1).toUpperCase(),hm.get(game.team2).toUpperCase()));
+
     }
+
+    public Result query2(){
+        Form<Game> q2Form = formFactory.form(Game.class).bindFromRequest();
+
+        Game game = q2Form.get();
+
+        System.out.println(game.player);
+
+        JsonNode response = Queries.getPlayerPlays(game.team1, game.team2, game.date, game.player);
+
+        List<List<String>> resList = new ArrayList<List<String>>();
+
+        if(response != null){
+            for(JsonNode node : response){
+
+                List<String> tempList = new ArrayList<>();
+
+                tempList.add(node.get("Quarter").asText());
+                tempList.add(node.get("Time").asText());
+                tempList.add(node.get("Down").asText());
+                tempList.add(node.get("ToGo").asText());
+                tempList.add(node.get("Location").asText());
+                tempList.add(node.get(hm.get(game.team1).toUpperCase()).asText());
+                tempList.add(node.get(hm.get(game.team2).toUpperCase()).asText());
+                tempList.add(node.get("EPB").asText());
+                tempList.add(node.get("EPA").asText());
+                tempList.add(node.get("Type").asText());
+                tempList.add(node.get("Depth").asText());
+                tempList.add(node.get("Direction").asText());
+                tempList.add(node.get("Yards Gained").asText());
+                tempList.add(node.get("Detail").asText());
+
+                resList.add(tempList);
+
+            }
+        }
+
+        System.out.println(resList);
+
+        return ok(views.html.query2.render(resList,hm.get(game.team1).toUpperCase(),hm.get(game.team2).toUpperCase()));
+    }
+
+    public Result query3(){
+        Form<Game> q3Form = formFactory.form(Game.class).bindFromRequest();
+
+        Game game = q3Form.get();
+
+        JsonNode response = Queries.getScoringPlays(game.team1, game.team2, game.date);
+
+        List<List<String>> resList = new ArrayList<List<String>>();
+
+        if(response != null){
+            for(JsonNode node : response){
+
+                List<String> tempList = new ArrayList<>();
+
+                tempList.add(node.get("Quarter").asText());
+                tempList.add(node.get("Time").asText());
+                tempList.add(node.get("Down").asText());
+                tempList.add(node.get("ToGo").asText());
+                tempList.add(node.get("Location").asText());
+                tempList.add(node.get(hm.get(game.team1).toUpperCase()).asText());
+                tempList.add(node.get(hm.get(game.team2).toUpperCase()).asText());
+                tempList.add(node.get("EPB").asText());
+                tempList.add(node.get("EPA").asText());
+                tempList.add(node.get("Type").asText());
+                tempList.add(node.get("Depth").asText());
+                tempList.add(node.get("Direction").asText());
+                tempList.add(node.get("Yards Gained").asText());
+                tempList.add(node.get("Detail").asText());
+
+                resList.add(tempList);
+
+            }
+        }
+
+        System.out.println(resList);
+
+        return ok(views.html.query3.render(resList,hm.get(game.team1).toUpperCase(),hm.get(game.team2).toUpperCase()));
+
+    }
+
+    public Result query4(){
+        Form<Game> q4Form = formFactory.form(Game.class).bindFromRequest();
+
+        Game game = q4Form.get();
+
+        JsonNode response = Queries.getThirdDownConversions(game.team1, game.team2, game.date);
+
+        List<List<String>> resList = new ArrayList<List<String>>();
+
+        if(response != null){
+            for(JsonNode node : response){
+
+                List<String> tempList = new ArrayList<>();
+
+                tempList.add(node.get("Quarter").asText());
+                tempList.add(node.get("Time").asText());
+                tempList.add(node.get("Down").asText());
+                tempList.add(node.get("ToGo").asText());
+                tempList.add(node.get("Location").asText());
+                tempList.add(node.get(hm.get(game.team1).toUpperCase()).asText());
+                tempList.add(node.get(hm.get(game.team2).toUpperCase()).asText());
+                tempList.add(node.get("EPB").asText());
+                tempList.add(node.get("EPA").asText());
+                tempList.add(node.get("Type").asText());
+                tempList.add(node.get("Depth").asText());
+                tempList.add(node.get("Direction").asText());
+                tempList.add(node.get("Yards Gained").asText());
+                tempList.add(node.get("Detail").asText());
+
+                resList.add(tempList);
+
+            }
+        }
+
+        System.out.println(resList);
+
+        return ok(views.html.query4.render(resList,hm.get(game.team1).toUpperCase(),hm.get(game.team2).toUpperCase()));
+
+    }
+
+    public Result query5(){
+        Form<Game> q4Form = formFactory.form(Game.class).bindFromRequest();
+
+        Game game = q4Form.get();
+
+        JsonNode response = Queries.getPlayTypeDistance(game.team1, game.team2, game.date, game.playType, game.distance);
+
+        List<List<String>> resList = new ArrayList<List<String>>();
+
+        if(response != null){
+            for(JsonNode node : response){
+
+                List<String> tempList = new ArrayList<>();
+
+                tempList.add(node.get("Quarter").asText());
+                tempList.add(node.get("Time").asText());
+                tempList.add(node.get("Down").asText());
+                tempList.add(node.get("ToGo").asText());
+                tempList.add(node.get("Location").asText());
+                tempList.add(node.get(hm.get(game.team1).toUpperCase()).asText());
+                tempList.add(node.get(hm.get(game.team2).toUpperCase()).asText());
+                tempList.add(node.get("EPB").asText());
+                tempList.add(node.get("EPA").asText());
+                tempList.add(node.get("Type").asText());
+                tempList.add(node.get("Depth").asText());
+                tempList.add(node.get("Direction").asText());
+                tempList.add(node.get("Yards Gained").asText());
+                tempList.add(node.get("Detail").asText());
+
+                resList.add(tempList);
+
+            }
+        }
+
+        System.out.println(resList);
+
+        return ok(views.html.query5.render(resList,hm.get(game.team1).toUpperCase(),hm.get(game.team2).toUpperCase()));
+
+    }
+
+    Map<String,String> hm = new HashMap<String,String>(){{
+        put("49ers","sfo");
+        put("Bears","chi");
+        put("Bengals","cin");
+        put("Bills","buf");
+        put("Broncos","den");
+        put("Browns","cle");
+        put("Buccaneers","tam");
+        put("Cardinals","ari");
+        put("Chargers","lac");
+        put("Chiefs","kan");
+        put("Colts","ind");
+        put("Cowboys","dal");
+        put("Eagles","phi");
+        put("Falcons","atl");
+        put("Giants","nyg");
+        put("Jaguars","jax");
+        put("Jets","nyj");
+        put("Lions","det");
+        put("Miami","mia");
+        put("Packers","gnb");
+        put("Panthers","car");
+        put("Patriots","nwe");
+        put("Raiders","oak");
+        put("Rams","lar");
+        put("Ravens","bal");
+        put("Redskins","was");
+        put("Saints","nor");
+        put("Seahawks","sea");
+        put("Steelers","pit");
+        put("Texans","hou");
+        put("Titans","ten");
+        put("Vikings","min");
+
+    }};
 
 }

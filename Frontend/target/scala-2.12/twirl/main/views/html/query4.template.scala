@@ -22,15 +22,16 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object query4 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object query4 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[List[List[String]],String,String,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(TeamString: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(plays: List[List[String]],HomeTeam: String, RoadTeam: String):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*1.64*/("""
+"""),format.raw/*2.1*/("""<!DOCTYPE html>
 <html>
 
     <style>
@@ -46,65 +47,146 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                 margin: 4px 2px;
                 cursor: pointer;
             """),format.raw/*17.13*/("""}"""),format.raw/*17.14*/("""
-    """),format.raw/*18.5*/("""</style>
+
+    """),format.raw/*19.5*/("""</style>
 
     <body>
 
         <header class="topbar">
             <h1 class="focused" style="font-size: 37px;
                 color: #57a957">
-                Query 4 : All Third Down Conversion Plays
+                Query 4 : All Third Down Conversions
             </h1>
 
-            <form action = """"),_display_(/*28.30*/routes/*28.36*/.HomeController.index()),format.raw/*28.59*/("""" method="GET">
+            <form action = """"),_display_(/*29.30*/routes/*29.36*/.HomeController.index()),format.raw/*29.59*/("""" method="GET">
                 <button id="api-get-page"  class="button" type="submit">Home Page</button>
             </form>
 
-            <form action = """"),_display_(/*32.30*/routes/*32.36*/.HomeController.index()),format.raw/*32.59*/("""" method="GET">
-                <label for="dropdown">Select Team 1</label>
-                <select class = "dropdown" id = "dropdown">
+
+            <form action = """"),_display_(/*34.30*/routes/*34.36*/.HomeController.query4()),format.raw/*34.60*/("""" method="GET">
+                <label for="team1">Select Team 1</label>
+                <select class = "team1" name = "team1">
+                    <option value="49ers">49ers</option>
+                    <option value="Bears">Bears</option>
+                    <option value="Bengals">Bengals</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Broncos">Broncos</option>
+                    <option value="Browns">Browns</option>
+                    <option value="Buccaneers">Buccaneers</option>
+                    <option value="Cardinals">Cardinals</option>
+                    <option value="Chargers">Chargers</option>
+                    <option value="Chiefs">Chiefs</option>
+                    <option value="Colts">Colts</option>
+                    <option value="Cowboys">Cowboys</option>
+                    <option value="Eagles">Eagles</option>
+                    <option value="Falcons">Falcons</option>
+                    <option value="Giants">Giants</option>
+                    <option value="Jaguars">Jaguars</option>
+                    <option value="Jets">Jets</option>
+                    <option value="Lions">Lions</option>
+                    <option value="Miami">Miami</option>
                     <option value="Packers">Packers</option>
-"""),format.raw/*36.59*/("""
-                """),format.raw/*37.17*/("""</select>
+                    <option value="Panthers">Panthers</option>
+                    <option value="Patriots">Patriots</option>
+                    <option value="Raiders">Raiders</option>
+                    <option value="Rams">Rams</option>
+                    <option value="Ravens">Ravens</option>
+                    <option value="Redskins">Redskins</option>
+                    <option value="Saints">Saints</option>
+                    <option value="Seahawks">Seahawks</option>
+                    <option value="Steelers">Steelers</option>
+                    <option value="Texans">Texans</option>
+                    <option value="Titans">Titans</option>
+                    <option value="Vikings">Titans</option>
+                </select>
 
                 <br/>
 
-                <label for="dropdown2">Select Team 2</label>
-                <select class = "dropdown2" id = "dropdown2">
-                    <option value="Panthers">Panthers</option>
+                <label for="team2">Select Team 2</label>
+                <select class = "team2" name = "team2">
+                    <option value="49ers">49ers</option>
                     <option value="Bears">Bears</option>
-                    <option value="Bears2">Bears-2</option>
-                    <option value="Cowboys">Cowboys</option>
+                    <option value="Bengals">Bengals</option>
+                    <option value="Bills">Bills</option>
                     <option value="Broncos">Broncos</option>
-                    <option value="Lions">Lions</option>
-                    <option value="Lions2">Lions-2</option>
+                    <option value="Browns">Browns</option>
+                    <option value="Buccaneers">Buccaneers</option>
+                    <option value="Cardinals">Cardinals</option>
                     <option value="Chargers">Chargers</option>
                     <option value="Chiefs">Chiefs</option>
-                    <option value="Vikings">Vikings</option>
-                    <option value="Vikings2">Vikings-2</option>
-                    <option value="Giants">Giants</option>
-                    <option value="Raiders">Raiders</option>
+                    <option value="Colts">Colts</option>
+                    <option value="Cowboys">Cowboys</option>
                     <option value="Eagles">Eagles</option>
-                    <option value="Seahawks">Seahawks</option>
+                    <option value="Falcons">Falcons</option>
+                    <option value="Giants">Giants</option>
+                    <option value="Jaguars">Jaguars</option>
+                    <option value="Jets">Jets</option>
+                    <option value="Lions">Lions</option>
+                    <option value="Miami">Miami</option>
+                    <option value="Packers">Packers</option>
+                    <option value="Panthers">Panthers</option>
+                    <option value="Patriots">Patriots</option>
+                    <option value="Raiders">Raiders</option>
+                    <option value="Rams">Rams</option>
+                    <option value="Ravens">Ravens</option>
                     <option value="Redskins">Redskins</option>
-                    <option value="49ers">49ers</option>
-                    <option value="49ers2">49ers-2</option>
+                    <option value="Saints">Saints</option>
+                    <option value="Seahawks">Seahawks</option>
+                    <option value="Steelers">Steelers</option>
+                    <option value="Texans">Texans</option>
+                    <option value="Titans">Titans</option>
+                    <option value="Vikings">Titans</option>
                 </select>
-                <button id="api-get-page"  class="button" type="submit">Get Third Down Conversions</button>
+
+                <input type = "text" name = 'date'>Date
+
+                <button id="api-get-page"  class="button" type="submit">Run All Plays</button>
             </form>
+
+            <div>
+                <table border = "1">
+                    <tr>
+                        <th>Quarter</th>
+                        <th>Time (Seconds)</th>
+                        <th>Down</th>
+                        <th>Yards To Go</th>
+                        <th>Location</th>
+                        <th>"""),_display_(/*122.30*/HomeTeam),format.raw/*122.38*/("""</th>
+                        <th>"""),_display_(/*123.30*/RoadTeam),format.raw/*123.38*/("""</th>
+                        <th>Expected Points Before</th>
+                        <th>Expected Points After</th>
+                        <th>Type</th>
+                        <th>Depth</th>
+                        <th>Direction</th>
+                        <th>Yards Gained</th>
+                        <th>Details</th>
+                    </tr>
+                    """),_display_(/*132.22*/for(play <- plays) yield /*132.40*/{_display_(Seq[Any](format.raw/*132.41*/("""
+                        """),format.raw/*133.25*/("""<tr>
+                        """),_display_(/*134.26*/for(element <- play) yield /*134.46*/{_display_(Seq[Any](format.raw/*134.47*/("""
+
+                            """),format.raw/*136.29*/("""<td style="text-align: center">"""),_display_(/*136.61*/element),format.raw/*136.68*/("""</td>
+
+                        """)))}),format.raw/*138.26*/("""
+                        """),format.raw/*139.25*/("""</tr>
+                    """)))}),format.raw/*140.22*/("""
+
+
+                """),format.raw/*143.17*/("""</table>
+
+            </div>
 
         </header>
 
-        """),_display_(/*67.10*/TeamString),format.raw/*67.20*/("""
-    """),format.raw/*68.5*/("""</body>
+    </body>
 </html>"""))
       }
     }
   }
 
-  def render(TeamString:String): play.twirl.api.HtmlFormat.Appendable = apply(TeamString)
+  def render(plays:List[List[String]],HomeTeam:String,RoadTeam:String): play.twirl.api.HtmlFormat.Appendable = apply(plays,HomeTeam,RoadTeam)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (TeamString) => apply(TeamString)
+  def f:((List[List[String]],String,String) => play.twirl.api.HtmlFormat.Appendable) = (plays,HomeTeam,RoadTeam) => apply(plays,HomeTeam,RoadTeam)
 
   def ref: this.type = this
 
@@ -113,11 +195,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-12-06T11:34:45.448
-                  SOURCE: /Users/andrewbrkich/Desktop/Project/Frontend/app/views/query4.scala.html
-                  HASH: ac632e45336f16ca932f60957cf7eaa92222dfdf
-                  MATRIX: 949->1|1063->22|1146->78|1174->79|1218->96|1606->456|1635->457|1667->462|1943->711|1958->717|2002->740|2186->897|2201->903|2245->926|2470->1181|2515->1198|3970->2626|4001->2636|4033->2641
-                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|59->28|59->28|59->28|63->32|63->32|63->32|67->36|68->37|98->67|98->67|99->68
+                  DATE: 2021-12-08T15:01:11.566
+                  SOURCE: C:/Users/CJ/Desktop/8391/Project/Frontend/app/views/query4.scala.html
+                  HASH: 6958ea665646d85f20c356820234ae76cc41c488
+                  MATRIX: 975->1|1132->63|1160->65|1247->125|1275->126|1320->144|1718->514|1747->515|1782->523|2063->777|2078->783|2122->806|2312->969|2327->975|2372->999|7145->5744|7175->5752|7239->5788|7269->5796|7677->6176|7712->6194|7752->6195|7807->6221|7866->6252|7903->6272|7943->6273|8004->6305|8064->6337|8093->6344|8159->6378|8214->6404|8274->6432|8325->6454
+                  LINES: 28->1|33->1|34->2|38->6|38->6|39->7|49->17|49->17|51->19|61->29|61->29|61->29|66->34|66->34|66->34|154->122|154->122|155->123|155->123|164->132|164->132|164->132|165->133|166->134|166->134|166->134|168->136|168->136|168->136|170->138|171->139|172->140|175->143
                   -- GENERATED --
               */
           

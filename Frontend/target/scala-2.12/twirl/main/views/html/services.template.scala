@@ -30,7 +30,8 @@ object services extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.H
       {
 
 
-Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*1.48*/("""
+"""),format.raw/*2.1*/("""<!DOCTYPE html>
 <html>
 
     <style>
@@ -82,11 +83,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-12-03T12:04:23.590
-                  SOURCE: /Users/andrewbrkich/Desktop/Project/Frontend/app/views/services.scala.html
-                  HASH: 9ee6f8d4070fa38cbe17287780eb9304c81a5d23
-                  MATRIX: 958->1|1098->48|1177->100|1205->101|1245->114|1592->434|1621->435|1653->440|1928->688|1962->701|1998->710|2059->744|2094->758|2130->767
-                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|62->31|62->31|63->32|65->34|65->34|66->35
+                  DATE: 2021-12-07T23:46:43.762
+                  SOURCE: C:/Users/CJ/Desktop/8391/Project/Frontend/app/views/services.scala.html
+                  HASH: f48da5beed9556d01fe60ac714e1e73f4c9a572d
+                  MATRIX: 958->1|1099->47|1127->49|1210->105|1238->106|1279->120|1636->450|1665->451|1698->457|1986->718|2020->731|2057->741|2120->777|2155->791|2192->801
+                  LINES: 28->1|33->1|34->2|38->6|38->6|39->7|49->17|49->17|50->18|63->31|63->31|64->32|66->34|66->34|67->35
                   -- GENERATED --
               */
           

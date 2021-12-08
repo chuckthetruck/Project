@@ -1,4 +1,4 @@
-@(TeamString: String)
+@(plays: List[List[String]],HomeTeam: String, RoadTeam: String)
 <!DOCTYPE html>
 <html>
 
@@ -15,6 +15,7 @@
                 margin: 4px 2px;
                 cursor: pointer;
             }
+
     </style>
 
     <body>
@@ -29,42 +30,121 @@
                 <button id="api-get-page"  class="button" type="submit">Home Page</button>
             </form>
 
-            <form action = "@routes.HomeController.index()" method="GET">
-                <label for="dropdown">Select Team 1</label>
-                <select class = "dropdown" id = "dropdown">
+
+            <form action = "@routes.HomeController.query3()" method="GET">
+                <label for="team1">Select Team 1</label>
+                <select class = "team1" name = "team1">
+                    <option value="49ers">49ers</option>
+                    <option value="Bears">Bears</option>
+                    <option value="Bengals">Bengals</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Broncos">Broncos</option>
+                    <option value="Browns">Browns</option>
+                    <option value="Buccaneers">Buccaneers</option>
+                    <option value="Cardinals">Cardinals</option>
+                    <option value="Chargers">Chargers</option>
+                    <option value="Chiefs">Chiefs</option>
+                    <option value="Colts">Colts</option>
+                    <option value="Cowboys">Cowboys</option>
+                    <option value="Eagles">Eagles</option>
+                    <option value="Falcons">Falcons</option>
+                    <option value="Giants">Giants</option>
+                    <option value="Jaguars">Jaguars</option>
+                    <option value="Jets">Jets</option>
+                    <option value="Lions">Lions</option>
+                    <option value="Miami">Miami</option>
                     <option value="Packers">Packers</option>
-@*                    <option value="Rams">Rams</option>*@
+                    <option value="Panthers">Panthers</option>
+                    <option value="Patriots">Patriots</option>
+                    <option value="Raiders">Raiders</option>
+                    <option value="Rams">Rams</option>
+                    <option value="Ravens">Ravens</option>
+                    <option value="Redskins">Redskins</option>
+                    <option value="Saints">Saints</option>
+                    <option value="Seahawks">Seahawks</option>
+                    <option value="Steelers">Steelers</option>
+                    <option value="Texans">Texans</option>
+                    <option value="Titans">Titans</option>
+                    <option value="Vikings">Titans</option>
                 </select>
 
                 <br/>
 
-                <label for="dropdown2">Select Team 2</label>
-                <select class = "dropdown2" id = "dropdown2">
-                    <option value="Panthers">Panthers</option>
+                <label for="team2">Select Team 2</label>
+                <select class = "team2" name = "team2">
+                    <option value="49ers">49ers</option>
                     <option value="Bears">Bears</option>
-                    <option value="Bears2">Bears-2</option>
-                    <option value="Cowboys">Cowboys</option>
+                    <option value="Bengals">Bengals</option>
+                    <option value="Bills">Bills</option>
                     <option value="Broncos">Broncos</option>
-                    <option value="Lions">Lions</option>
-                    <option value="Lions2">Lions-2</option>
+                    <option value="Browns">Browns</option>
+                    <option value="Buccaneers">Buccaneers</option>
+                    <option value="Cardinals">Cardinals</option>
                     <option value="Chargers">Chargers</option>
                     <option value="Chiefs">Chiefs</option>
-                    <option value="Vikings">Vikings</option>
-                    <option value="Vikings2">Vikings-2</option>
-                    <option value="Giants">Giants</option>
-                    <option value="Raiders">Raiders</option>
+                    <option value="Colts">Colts</option>
+                    <option value="Cowboys">Cowboys</option>
                     <option value="Eagles">Eagles</option>
-                    <option value="Seahawks">Seahawks</option>
+                    <option value="Falcons">Falcons</option>
+                    <option value="Giants">Giants</option>
+                    <option value="Jaguars">Jaguars</option>
+                    <option value="Jets">Jets</option>
+                    <option value="Lions">Lions</option>
+                    <option value="Miami">Miami</option>
+                    <option value="Packers">Packers</option>
+                    <option value="Panthers">Panthers</option>
+                    <option value="Patriots">Patriots</option>
+                    <option value="Raiders">Raiders</option>
+                    <option value="Rams">Rams</option>
+                    <option value="Ravens">Ravens</option>
                     <option value="Redskins">Redskins</option>
-                    <option value="49ers">49ers</option>
-                    <option value="49ers2">49ers-2</option>
+                    <option value="Saints">Saints</option>
+                    <option value="Seahawks">Seahawks</option>
+                    <option value="Steelers">Steelers</option>
+                    <option value="Texans">Texans</option>
+                    <option value="Titans">Titans</option>
+                    <option value="Vikings">Titans</option>
                 </select>
-                <button id="api-get-page"  class="button" type="submit">Get Scoring Plays</button>
+
+                <input type = "text" name = 'date'>Date
+
+                <button id="api-get-page"  class="button" type="submit">Run All Plays</button>
             </form>
 
-        </header>
+            <div>
+                <table border = "1">
+                    <tr>
+                        <th>Quarter</th>
+                        <th>Time (Seconds)</th>
+                        <th>Down</th>
+                        <th>Yards To Go</th>
+                        <th>Location</th>
+                        <th>@HomeTeam</th>
+                        <th>@RoadTeam</th>
+                        <th>Expected Points Before</th>
+                        <th>Expected Points After</th>
+                        <th>Type</th>
+                        <th>Depth</th>
+                        <th>Direction</th>
+                        <th>Yards Gained</th>
+                        <th>Details</th>
+                    </tr>
+                    @for(play <- plays){
+                        <tr>
+                        @for(element <- play){
 
-        @TeamString
+                            <td style="text-align: center">@element</td>
+
+                        }
+                        </tr>
+                    }
+
+
+                </table>
+
+            </div>
+
+        </header>
 
     </body>
 </html>

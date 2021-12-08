@@ -5,31 +5,19 @@ import play.libs.Json;
 import play.libs.ws.WSClient;
 import play.libs.ws.WSRequest;
 import play.libs.ws.WSResponse;
+import utils.Queries;
 
 import java.util.concurrent.CompletionStage;
 
 public class Game {
-    private String team1;
-    private String team2;
-    private String date;
+    public String team1;
+    public String team2;
+    public String date;
+    public String player;
+    public String playType;
+    public String distance;
 
-    private String index;
-    private String quarter;
-    private String time;
-    private String down;
-    private String togo;
-    private String location;
-    private String detail;
-    private String type;
-    private String depth;
-    private String direction;
-    private String yardsgained;
-
-    public String getTeam1(){return this.team1;}
-    public String getTeam2(){return this.team2;}
-    public String getDate(){return this.date;}
-
-    public CompletionStage<WSResponse> checkGame(String team1, String team2, String date) {
+    /*public CompletionStage<WSResponse> checkGame(String team1, String team2, String date) {
 
         WSClient ws = play.test.WSTestClient.newClient(9005);
         //add username password
@@ -51,6 +39,6 @@ public class Game {
                 .thenApply((WSResponse r) -> {
                     return r;
                 });
-    }
+    }*/
 
 }

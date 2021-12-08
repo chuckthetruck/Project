@@ -13,10 +13,8 @@ GET     /query4                    controllers.HomeController.Query4Handler()
 GET     /query5                    controllers.HomeController.Query5Handler()
 
 GET     /q1                         controllers.HomeController.query1()
+GET     /q2                         controllers.HomeController.query2()
+GET     /q3                         controllers.HomeController.query3()
+GET     /q4                         controllers.HomeController.query4()
+GET     /q5                         controllers.HomeController.query5()
 
-
-#GET     /q1                        controllers.HomeController.Q1SQL(String)
-#GET     /q2                        controllers.HomeController.Q2SQL(String, String)
-#GET     /q3                        controllers.HomeController.Q3SQL(String)
-#GET     /q4                        controllers.HomeController.Q4SQL(String, String, String)
-#GET     /q5                        controllers.HomeController.Q5SQL(String, String, String)

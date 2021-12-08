@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/andrewbrkich/Desktop/Project/Frontend/conf/routes
-// @DATE:Tue Dec 07 23:24:00 CST 2021
+// @SOURCE:C:/Users/CJ/Desktop/8391/Project/Frontend/conf/routes
+// @DATE:Wed Dec 08 15:12:12 CST 2021
 
 package router
 
@@ -43,6 +43,10 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query4""", """controllers.HomeController.Query4Handler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query5""", """controllers.HomeController.Query5Handler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """q1""", """controllers.HomeController.query1()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """q2""", """controllers.HomeController.query2()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """q3""", """controllers.HomeController.query3()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """q4""", """controllers.HomeController.query4()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """q5""", """controllers.HomeController.query5()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -176,6 +180,78 @@ class Routes(
     )
   )
 
+  // @LINE:16
+  private[this] lazy val controllers_HomeController_query27_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("q2")))
+  )
+  private[this] lazy val controllers_HomeController_query27_invoker = createInvoker(
+    HomeController_0.query2(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "query2",
+      Nil,
+      "GET",
+      this.prefix + """q2""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:17
+  private[this] lazy val controllers_HomeController_query38_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("q3")))
+  )
+  private[this] lazy val controllers_HomeController_query38_invoker = createInvoker(
+    HomeController_0.query3(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "query3",
+      Nil,
+      "GET",
+      this.prefix + """q3""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:18
+  private[this] lazy val controllers_HomeController_query49_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("q4")))
+  )
+  private[this] lazy val controllers_HomeController_query49_invoker = createInvoker(
+    HomeController_0.query4(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "query4",
+      Nil,
+      "GET",
+      this.prefix + """q4""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:19
+  private[this] lazy val controllers_HomeController_query510_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("q5")))
+  )
+  private[this] lazy val controllers_HomeController_query510_invoker = createInvoker(
+    HomeController_0.query5(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "query5",
+      Nil,
+      "GET",
+      this.prefix + """q5""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -219,6 +295,30 @@ class Routes(
     case controllers_HomeController_query16_route(params@_) =>
       call { 
         controllers_HomeController_query16_invoker.call(HomeController_0.query1())
+      }
+  
+    // @LINE:16
+    case controllers_HomeController_query27_route(params@_) =>
+      call { 
+        controllers_HomeController_query27_invoker.call(HomeController_0.query2())
+      }
+  
+    // @LINE:17
+    case controllers_HomeController_query38_route(params@_) =>
+      call { 
+        controllers_HomeController_query38_invoker.call(HomeController_0.query3())
+      }
+  
+    // @LINE:18
+    case controllers_HomeController_query49_route(params@_) =>
+      call { 
+        controllers_HomeController_query49_invoker.call(HomeController_0.query4())
+      }
+  
+    // @LINE:19
+    case controllers_HomeController_query510_route(params@_) =>
+      call { 
+        controllers_HomeController_query510_invoker.call(HomeController_0.query5())
       }
   }
 }

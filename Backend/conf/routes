@@ -6,4 +6,14 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 
-GET     /services                     controllers.ServiceController.services()
+GET     /allplays                   controllers.HomeController.allplays()
+
+GET     /scoringplays                   controllers.HomeController.scoringplays()
+
+GET     /playerplays                   controllers.HomeController.playerplays()
+
+GET     /thirdconversions                   controllers.HomeController.thirdconversions()
+
+GET     /playdistance                   controllers.HomeController.playdistance()
+
+GET     /services                   controllers.ServiceController.services()

@@ -5,69 +5,68 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import utils.LazyConnection;
 
 public class Queries {
-    static Connection conn;
+
+    public Connection conn;
 
     public Queries() {
-    }
 
-    public static ResultSet getPlayerPlays(String table, String player) throws SQLException {
-        Queries dbq = new Queries();
-        String outstring = "";
-        String select_sql = "Select * from " + table + " where " + player + " in (Select Detail from " + table + ");";
-        Statement state = conn.createStatement();
-        ResultSet rs = state.executeQuery(select_sql);
-
-        return rs;
-    }
-
-    public static ResultSet getPlayTypeDistance(String table, String type, String distance) throws SQLException {
-        Queries dbq = new Queries();
-        String outstring = "";
-        String select_sql = "Select * from " + table + " where type = " + type + " and Yards_Gained > " + distance + ";";
-        Statement state = conn.createStatement();
-        ResultSet rs = state.executeQuery(select_sql);
-
-        return rs;
-    }
-
-    public static ResultSet getScoringPlays(String table) throws SQLException {
-        Queries dbq = new Queries();
-        String outstring = "";
-        String select_sql = "Select * from " + table + " where 'touchdown' in (Select Detail from " + table + ");";
-        Statement state = conn.createStatement();
-        ResultSet rs = state.executeQuery(select_sql);
-
-        return rs;
-    }
-
-    public static ResultSet getThirdDownConversions(String table, String down, int yards_gained, int yards_to_go) throws SQLException {
-        Queries dbq = new Queries();
-        String outstring = "";
-        String select_sql = "Select * from " + table + " where down = 3 and " + (yards_gained-yards_to_go) + "> 0;";
-        Statement state = conn.createStatement();
-        ResultSet rs = state.executeQuery(select_sql);
-
-        return rs;
-    }
-
-    public static ResultSet getAllPlays(String table) throws SQLException {
-        Queries dbq = new Queries();
-        String outstring = "";
-        String select_sql = "Select * from " + table + ";";
-        Statement state = conn.createStatement();
-        ResultSet rs = state.executeQuery(select_sql);
-
-        return rs;
-    }
-
-    static {
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/packers", "root", "bearflag");
-        } catch (SQLException var1) {
-            var1.printStackTrace();
+            this.conn = LazyConnection.getConnInstance();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
+    }
+
+    public ResultSet getPlayerPlays(String table, String player) throws SQLException {
+        Queries dbq = new Queries();
+        String outstring = "";
+        String select_sql = "Select * from " + table + " where Detail like" + " '%" + player + "%';";
+        Statement state = this.conn.createStatement();
+        ResultSet rs = state.executeQuery(select_sql);
+
+        return rs;
+    }
+
+    public ResultSet getPlayTypeDistance(String table, String type, String distance) throws SQLException {
+        String select_sql = "Select * from " + table + " where type = '" + type + "' and `Yards Gained` > " + distance + ";";
+        System.out.println(select_sql);
+        Statement state = this.conn.createStatement();
+        ResultSet rs = state.executeQuery(select_sql);
+
+        return rs;
+    }
+
+    public ResultSet getScoringPlays(String table) throws SQLException {
+        String select_sql = "Select * from " + table + " where Detail regexp 'touchdown|field goal good|extra point good|safety';";
+        Statement state = this.conn.createStatement();
+        ResultSet rs = state.executeQuery(select_sql);
+
+        return rs;
+    }
+
+    public ResultSet getThirdDownConversions(String table) throws SQLException {
+        String select_sql = "Select * from " + table + " where down = 3 and (`Yards gained` - ToGo) > 0;";
+        Statement state = this.conn.createStatement();
+        ResultSet rs = state.executeQuery(select_sql);
+
+        return rs;
+    }
+
+    public ResultSet getAllPlays(String table){
+        String select_sql = "Select * from " + table + ";";
+        System.out.println(select_sql);
+        ResultSet rs = null;
+        try {
+            Statement state = this.conn.createStatement();
+            rs = state.executeQuery(select_sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return rs;
     }
 }

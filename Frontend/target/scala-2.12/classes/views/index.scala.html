@@ -2,30 +2,68 @@
     @import java.math.BigInteger;var i = 0
 <!DOCTYPE html>
 <html>
+
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 5px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+
     <body>
 
         <header class="topbar">
             <h1 class="focused" style="font-size: 37px;
                 color: #57a957">
-                <strong>Login Message</strong>
+                <strong>Green Bay Packers - NFL Playbook 2019</strong>
             </h1>
             <p class="focused" style="font-size: 20px;
                 color: #3F51B5">@message</p>
 
-            <br>if statement in scala<br>
-            @if(message.equals("success")) {
-                <h3>Login Successful</h3>
-            } else {
-                <h3>Login failed</h3>
-            }
 
-            <br><br>
-            <br>for loop in scala<br>
-            <ul>
-            @for(i <- 0 to 5){
-                <li> @(i) </li>
-            }
-            </ul>
+            <form action = "@routes.HomeController.Query1Handler()" method="GET">
+                 <button id="api-get-page"  class="button" type="submit">All Plays</button>
+            </form>
+
+            <form action = "@routes.HomeController.Query2Handler()" method="GET">
+                <button id="api-get-page"  class="button" type="submit">All Player Plays</button>
+            </form>
+
+            <form action = "@routes.HomeController.Query3Handler()" method="GET">
+                <button id="api-get-page"  class="button" type="submit">All Scoring Plays</button>
+            </form>
+
+            <form action = "@routes.HomeController.Query4Handler()" method="GET">
+                <button id="api-get-page"  class="button" type="submit">All Third Down Conversions</button>
+            </form>
+
+            <form action = "@routes.HomeController.Query5Handler()" method="GET">
+                <button id="api-get-page"  class="button" type="submit">Specific Plays</button>
+            </form>
+
         </header>
 
     </body>

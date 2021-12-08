@@ -60,16 +60,50 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                 <button id="api-get-page"  class="button" type="submit">Home Page</button>
             </form>
 
+            <form action = """"),_display_(/*32.30*/routes/*32.36*/.HomeController.index()),format.raw/*32.59*/("""" method="GET">
+                <label for="dropdown">Select Team 1</label>
+                <select class = "dropdown" id = "dropdown">
+                    <option value="Packers">Packers</option>
+"""),format.raw/*36.59*/("""
+                """),format.raw/*37.17*/("""</select>
+
+                <br/>
+
+                <label for="dropdown2">Select Team 2</label>
+                <select class = "dropdown2" id = "dropdown2">
+                    <option value="Panthers">Panthers</option>
+                    <option value="Bears">Bears</option>
+                    <option value="Bears2">Bears-2</option>
+                    <option value="Cowboys">Cowboys</option>
+                    <option value="Broncos">Broncos</option>
+                    <option value="Lions">Lions</option>
+                    <option value="Lions2">Lions-2</option>
+                    <option value="Chargers">Chargers</option>
+                    <option value="Chiefs">Chiefs</option>
+                    <option value="Vikings">Vikings</option>
+                    <option value="Vikings2">Vikings-2</option>
+                    <option value="Giants">Giants</option>
+                    <option value="Raiders">Raiders</option>
+                    <option value="Eagles">Eagles</option>
+                    <option value="Seahawks">Seahawks</option>
+                    <option value="Redskins">Redskins</option>
+                    <option value="49ers">49ers</option>
+                    <option value="49ers2">49ers-2</option>
+                </select>
+
+                <br/>
+
+                <input type = 'text' id = 'type'>Play Type
+                <br/>
+                <input type = 'text' id = 'distance'>Distance
+                <button id="api-get-page"  class="button" type="submit">Get Specific Plays</button>
+            </form>
+
         </header>
 
-        <div>
-            """),_display_(/*35.14*/TeamString),format.raw/*35.24*/("""
-        """),format.raw/*36.9*/("""</div>
-        <div>
-        """),_display_(/*38.10*/TeamString),format.raw/*38.20*/("""
-        """),format.raw/*39.9*/("""</div>
+        """),_display_(/*73.10*/TeamString),format.raw/*73.20*/("""
 
-    </body>
+    """),format.raw/*75.5*/("""</body>
 </html>"""))
       }
     }
@@ -86,11 +120,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-12-03T15:48:44.156
+                  DATE: 2021-12-06T11:37:34.751
                   SOURCE: /Users/andrewbrkich/Desktop/Project/Frontend/app/views/query5.scala.html
-                  HASH: 24fcda5d88a642f69287cb307a13ac16b795e7fd
-                  MATRIX: 949->1|1063->22|1146->78|1174->79|1218->96|1606->456|1635->457|1667->462|1926->694|1941->700|1985->723|2186->897|2217->907|2253->916|2310->946|2341->956|2377->965
-                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|59->28|59->28|59->28|66->35|66->35|67->36|69->38|69->38|70->39
+                  HASH: cb8fe643da8feefd95b2ced83009338de7226ccd
+                  MATRIX: 949->1|1063->22|1146->78|1174->79|1218->96|1606->456|1635->457|1667->462|1926->694|1941->700|1985->723|2169->880|2184->886|2228->909|2453->1164|2498->1181|4112->2768|4143->2778|4176->2784
+                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|59->28|59->28|59->28|63->32|63->32|63->32|67->36|68->37|104->73|104->73|106->75
                   -- GENERATED --
               */
           

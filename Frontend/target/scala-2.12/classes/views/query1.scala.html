@@ -15,6 +15,7 @@
                 margin: 4px 2px;
                 cursor: pointer;
             }
+
     </style>
 
     <body>
@@ -22,12 +23,13 @@
         <header class="topbar">
             <h1 class="focused" style="font-size: 37px;
                 color: #57a957">
-                Query 3 : All Scoring Plays
+                Query 1 : All Plays
             </h1>
 
             <form action = "@routes.HomeController.index()" method="GET">
                 <button id="api-get-page"  class="button" type="submit">Home Page</button>
             </form>
+
 
             <form action = "@routes.HomeController.index()" method="GET">
                 <label for="dropdown">Select Team 1</label>
@@ -59,7 +61,8 @@
                     <option value="49ers">49ers</option>
                     <option value="49ers2">49ers-2</option>
                 </select>
-                <button id="api-get-page"  class="button" type="submit">Get Scoring Plays</button>
+
+                <button id="api-get-page"  class="button" type="submit">Run All Plays</button>
             </form>
 
         </header>

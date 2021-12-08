@@ -46,7 +46,8 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                 margin: 4px 2px;
                 cursor: pointer;
             """),format.raw/*17.13*/("""}"""),format.raw/*17.14*/("""
-    """),format.raw/*18.5*/("""</style>
+
+    """),format.raw/*19.5*/("""</style>
 
     <body>
 
@@ -56,20 +57,52 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                 Query 1 : All Plays
             </h1>
 
-            <form action = """"),_display_(/*28.30*/routes/*28.36*/.HomeController.index()),format.raw/*28.59*/("""" method="GET">
+            <form action = """"),_display_(/*29.30*/routes/*29.36*/.HomeController.index()),format.raw/*29.59*/("""" method="GET">
                 <button id="api-get-page"  class="button" type="submit">Home Page</button>
+            </form>
+
+
+            <form action = """"),_display_(/*34.30*/routes/*34.36*/.HomeController.query1()),format.raw/*34.60*/("""" method="GET">
+                <label for="dropdown">Select Team 1</label>
+                <select class = "dropdown" id = "dropdown">
+                    <option value="Packers">Packers</option>
+"""),format.raw/*38.59*/("""
+                """),format.raw/*39.17*/("""</select>
+
+                <br/>
+
+                <label for="dropdown2">Select Team 2</label>
+                <select class = "dropdown2" id = "dropdown2">
+                    <option value="Panthers">Panthers</option>
+                    <option value="Bears">Bears</option>
+                    <option value="Bears2">Bears-2</option>
+                    <option value="Cowboys">Cowboys</option>
+                    <option value="Broncos">Broncos</option>
+                    <option value="Lions">Lions</option>
+                    <option value="Lions2">Lions-2</option>
+                    <option value="Chargers">Chargers</option>
+                    <option value="Chiefs">Chiefs</option>
+                    <option value="Vikings">Vikings</option>
+                    <option value="Vikings2">Vikings-2</option>
+                    <option value="Giants">Giants</option>
+                    <option value="Raiders">Raiders</option>
+                    <option value="Eagles">Eagles</option>
+                    <option value="Seahawks">Seahawks</option>
+                    <option value="Redskins">Redskins</option>
+                    <option value="49ers">49ers</option>
+                    <option value="49ers2">49ers-2</option>
+                </select>
+
+                <input type = "text" id = 'date'>Date
+
+                <button id="api-get-page"  class="button" type="submit">Run All Plays</button>
             </form>
 
         </header>
 
-        <div>
-            """),_display_(/*35.14*/TeamString),format.raw/*35.24*/("""
-        """),format.raw/*36.9*/("""</div>
-        <div>
-        """),_display_(/*38.10*/TeamString),format.raw/*38.20*/("""
-        """),format.raw/*39.9*/("""</div>
+        """),_display_(/*72.10*/TeamString),format.raw/*72.20*/("""
 
-    </body>
+    """),format.raw/*74.5*/("""</body>
 </html>"""))
       }
     }
@@ -86,11 +119,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-12-03T15:48:44.137
+                  DATE: 2021-12-07T23:24:01.078
                   SOURCE: /Users/andrewbrkich/Desktop/Project/Frontend/app/views/query1.scala.html
-                  HASH: 02745642f83bfa8029bf67f8c0e9a85ca8bf5830
-                  MATRIX: 949->1|1063->22|1146->78|1174->79|1218->96|1606->456|1635->457|1667->462|1921->689|1936->695|1980->718|2181->892|2212->902|2248->911|2305->941|2336->951|2372->960
-                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|59->28|59->28|59->28|66->35|66->35|67->36|69->38|69->38|70->39
+                  HASH: 9f4d1dfafe6304de719927e8fdd62729fd6ce59c
+                  MATRIX: 949->1|1063->22|1146->78|1174->79|1218->96|1606->456|1635->457|1668->463|1922->690|1937->696|1981->719|2166->877|2181->883|2226->907|2451->1162|2496->1179|3994->2650|4025->2660|4058->2666
+                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|50->19|60->29|60->29|60->29|65->34|65->34|65->34|69->38|70->39|103->72|103->72|105->74
                   -- GENERATED --
               */
           

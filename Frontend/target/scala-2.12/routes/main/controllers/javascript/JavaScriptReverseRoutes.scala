@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/andrewbrkich/Desktop/Project/Frontend/conf/routes
-// @DATE:Fri Dec 03 15:48:43 CST 2021
+// @DATE:Tue Dec 07 23:24:00 CST 2021
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -19,7 +19,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:11
+    // @LINE:9
     def Query1Handler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.Query1Handler",
       """
@@ -29,7 +29,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:14
+    // @LINE:12
     def Query4Handler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.Query4Handler",
       """
@@ -39,17 +39,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:8
-    def services: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.services",
+    // @LINE:15
+    def query1: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.query1",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "servicesHandler"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "q1"})
         }
       """
     )
   
-    // @LINE:13
+    // @LINE:11
     def Query3Handler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.Query3Handler",
       """
@@ -59,17 +59,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:9
-    def servicesHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.servicesHandler",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "services"})
-        }
-      """
-    )
-  
-    // @LINE:12
+    // @LINE:10
     def Query2Handler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.Query2Handler",
       """
@@ -89,7 +79,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:15
+    // @LINE:13
     def Query5Handler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.Query5Handler",
       """

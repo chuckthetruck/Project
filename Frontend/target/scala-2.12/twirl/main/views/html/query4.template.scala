@@ -53,23 +53,50 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
         <header class="topbar">
             <h1 class="focused" style="font-size: 37px;
                 color: #57a957">
-                Query 3 : All Third Down Conversion Plays
+                Query 4 : All Third Down Conversion Plays
             </h1>
 
             <form action = """"),_display_(/*28.30*/routes/*28.36*/.HomeController.index()),format.raw/*28.59*/("""" method="GET">
                 <button id="api-get-page"  class="button" type="submit">Home Page</button>
             </form>
 
+            <form action = """"),_display_(/*32.30*/routes/*32.36*/.HomeController.index()),format.raw/*32.59*/("""" method="GET">
+                <label for="dropdown">Select Team 1</label>
+                <select class = "dropdown" id = "dropdown">
+                    <option value="Packers">Packers</option>
+"""),format.raw/*36.59*/("""
+                """),format.raw/*37.17*/("""</select>
+
+                <br/>
+
+                <label for="dropdown2">Select Team 2</label>
+                <select class = "dropdown2" id = "dropdown2">
+                    <option value="Panthers">Panthers</option>
+                    <option value="Bears">Bears</option>
+                    <option value="Bears2">Bears-2</option>
+                    <option value="Cowboys">Cowboys</option>
+                    <option value="Broncos">Broncos</option>
+                    <option value="Lions">Lions</option>
+                    <option value="Lions2">Lions-2</option>
+                    <option value="Chargers">Chargers</option>
+                    <option value="Chiefs">Chiefs</option>
+                    <option value="Vikings">Vikings</option>
+                    <option value="Vikings2">Vikings-2</option>
+                    <option value="Giants">Giants</option>
+                    <option value="Raiders">Raiders</option>
+                    <option value="Eagles">Eagles</option>
+                    <option value="Seahawks">Seahawks</option>
+                    <option value="Redskins">Redskins</option>
+                    <option value="49ers">49ers</option>
+                    <option value="49ers2">49ers-2</option>
+                </select>
+                <button id="api-get-page"  class="button" type="submit">Get Third Down Conversions</button>
+            </form>
+
         </header>
 
-        <div>
-            """),_display_(/*35.14*/TeamString),format.raw/*35.24*/("""
-        """),format.raw/*36.9*/("""</div>
-        <div>
-        """),_display_(/*38.10*/TeamString),format.raw/*38.20*/("""
-        """),format.raw/*39.9*/("""</div>
-
-    </body>
+        """),_display_(/*67.10*/TeamString),format.raw/*67.20*/("""
+    """),format.raw/*68.5*/("""</body>
 </html>"""))
       }
     }
@@ -86,11 +113,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-12-03T15:48:44.124
+                  DATE: 2021-12-06T11:34:45.448
                   SOURCE: /Users/andrewbrkich/Desktop/Project/Frontend/app/views/query4.scala.html
-                  HASH: 81e82f099ec3ed78c07c491e08064c5f6b09af9a
-                  MATRIX: 949->1|1063->22|1146->78|1174->79|1218->96|1606->456|1635->457|1667->462|1943->711|1958->717|2002->740|2203->914|2234->924|2270->933|2327->963|2358->973|2394->982
-                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|59->28|59->28|59->28|66->35|66->35|67->36|69->38|69->38|70->39
+                  HASH: ac632e45336f16ca932f60957cf7eaa92222dfdf
+                  MATRIX: 949->1|1063->22|1146->78|1174->79|1218->96|1606->456|1635->457|1667->462|1943->711|1958->717|2002->740|2186->897|2201->903|2245->926|2470->1181|2515->1198|3970->2626|4001->2636|4033->2641
+                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|59->28|59->28|59->28|63->32|63->32|63->32|67->36|68->37|98->67|98->67|99->68
                   -- GENERATED --
               */
           

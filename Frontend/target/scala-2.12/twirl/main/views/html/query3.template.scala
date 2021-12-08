@@ -60,16 +60,44 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                 <button id="api-get-page"  class="button" type="submit">Home Page</button>
             </form>
 
+            <form action = """"),_display_(/*32.30*/routes/*32.36*/.HomeController.index()),format.raw/*32.59*/("""" method="GET">
+                <label for="dropdown">Select Team 1</label>
+                <select class = "dropdown" id = "dropdown">
+                    <option value="Packers">Packers</option>
+"""),format.raw/*36.59*/("""
+                """),format.raw/*37.17*/("""</select>
+
+                <br/>
+
+                <label for="dropdown2">Select Team 2</label>
+                <select class = "dropdown2" id = "dropdown2">
+                    <option value="Panthers">Panthers</option>
+                    <option value="Bears">Bears</option>
+                    <option value="Bears2">Bears-2</option>
+                    <option value="Cowboys">Cowboys</option>
+                    <option value="Broncos">Broncos</option>
+                    <option value="Lions">Lions</option>
+                    <option value="Lions2">Lions-2</option>
+                    <option value="Chargers">Chargers</option>
+                    <option value="Chiefs">Chiefs</option>
+                    <option value="Vikings">Vikings</option>
+                    <option value="Vikings2">Vikings-2</option>
+                    <option value="Giants">Giants</option>
+                    <option value="Raiders">Raiders</option>
+                    <option value="Eagles">Eagles</option>
+                    <option value="Seahawks">Seahawks</option>
+                    <option value="Redskins">Redskins</option>
+                    <option value="49ers">49ers</option>
+                    <option value="49ers2">49ers-2</option>
+                </select>
+                <button id="api-get-page"  class="button" type="submit">Get Scoring Plays</button>
+            </form>
+
         </header>
 
-        <div>
-            """),_display_(/*35.14*/TeamString),format.raw/*35.24*/("""
-        """),format.raw/*36.9*/("""</div>
-        <div>
-        """),_display_(/*38.10*/TeamString),format.raw/*38.20*/("""
-        """),format.raw/*39.9*/("""</div>
+        """),_display_(/*67.10*/TeamString),format.raw/*67.20*/("""
 
-    </body>
+    """),format.raw/*69.5*/("""</body>
 </html>"""))
       }
     }
@@ -86,11 +114,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-12-03T15:48:44.147
+                  DATE: 2021-12-06T11:34:45.470
                   SOURCE: /Users/andrewbrkich/Desktop/Project/Frontend/app/views/query3.scala.html
-                  HASH: d6fe92abbf66a37481089611202eb46335ee39e0
-                  MATRIX: 949->1|1063->22|1146->78|1174->79|1218->96|1606->456|1635->457|1667->462|1929->697|1944->703|1988->726|2189->900|2220->910|2256->919|2313->949|2344->959|2380->968
-                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|59->28|59->28|59->28|66->35|66->35|67->36|69->38|69->38|70->39
+                  HASH: 6d9c9c8f205fcba82e3e4e588be2964fe518d95e
+                  MATRIX: 949->1|1063->22|1146->78|1174->79|1218->96|1606->456|1635->457|1667->462|1929->697|1944->703|1988->726|2172->883|2187->889|2231->912|2456->1167|2501->1184|3947->2603|3978->2613|4011->2619
+                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|59->28|59->28|59->28|63->32|63->32|63->32|67->36|68->37|98->67|98->67|100->69
                   -- GENERATED --
               */
           
